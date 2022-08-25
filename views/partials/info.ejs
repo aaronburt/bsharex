@@ -1,0 +1,17 @@
+<div class="col-sm-12 col-md-6 col-lg-4 mt-3 mt-sm-0 ">
+    <div class="card text-dark bg-info col-s12 text-dark">
+        <div class="card-body">
+            <h5 class="card-title">Info</h5>
+            <p class="card-text">
+                <div class="col-s12"><i class="fa-solid fa-photo-film"></i> <%= data.mimetype %></div>
+                <div class="col-s12"><i class="fa-solid fa-eye"></i> <%= data.views %></div>
+            </p>
+        </div>
+    </div>
+
+    <% if(mime !== 'application'){ %>
+        <div class="col-12 mt-2">
+            <%- include('sub/download', { originalname: data.originalname }) %>
+        </div>
+    <% } %>
+</div>
