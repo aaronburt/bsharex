@@ -1,8 +1,21 @@
+<link href="https://vjs.zencdn.net/7.20.2/video-js.css" rel="stylesheet" />
+
 <div class="col-sm-12 col-md-6 col-lg-8 h-75">
     <div class="card shadow-lg" style="background-color: var(--bs-gray-200)">
-    <video src="https://share.bsharex.xyz/<%= key %>" class="card-img-top" style="max-height: 35rem" controls alt="..."></video>
+        <video id="my-video" class="video-js card-img-top vjs-16-9 vjs-big-play-centered" controls preload="auto" data-setup="{}">
+            <source src="<%= scheme %>://<%= domain %>/<%= key %>" type="<%= data.mimetype %>" />
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+        </video>
+
+
+    <!-- <video src="<%= scheme %>://<%= domain %>/<%= key %>" class="card-img-top" style="max-height: 35rem" controls alt="..."></video> -->   
         <div class="card-body">
             <p class="card-text text-light"><%= data.originalname %></p>
         </div>
     </div>
 </div>
+
+<script src="https://vjs.zencdn.net/7.20.2/video.min.js"></script>

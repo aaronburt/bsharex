@@ -39,7 +39,7 @@ app.post('/upload', upload.single("file"), async(req, res) => {
         console.log(req.file)
 
         const { originalname, mimetype, key, size, acl, location } = req.file;
-        await db.collection('bsharex').doc(key).set({ originalname, mimetype, size, location, key, acl, "views": 0 });
+        await db.collection('bsharex').doc(key).set({ originalname, mimetype, size, location, key, acl, "views": 1 });
         return res.status(200).json({ status: 200, resource: `${scheme}://${cname}/preview/${req.file.key}` });
     } catch(err){
         return res.status(400).json({ status: 400, err: err })

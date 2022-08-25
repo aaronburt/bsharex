@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
-    <%- include('partials/head', { originalname: data.originalname, mime: mime, key: key, views: data.views }) %>
+    <%- include('partials/head') %>
+    <style>
+        *:focus {
+    outline: none;
+}
+    </style>
 </head>
 <body class="bg-dark">
     <%- include('partials/navbar') %>
-    <div class="container mt-3">
+    <div class="container-xxl mt-3">
         <div class="row">
-                <% switch (mime) {
-                    case "video": 
-                    case "audio":
-                    %>
-                        <%- include('partials/video') %>
-                    <% break;
-                    case "image": %>
-                        <%- include('partials/image') %>
-                    <% break;
-                    case "application": %>
-                        <%- include('partials/download') %>
-                    <% break;
-                    default: %>
-                        <%- include('partials/embed') %>
-                    <% break; } %>
+            <% switch (mime) {
+                case "video": 
+                case "audio":
+                %>
+                    <%- include('partials/video') %>
+                <% break;
+                case "image": %>
+                    <%- include('partials/image') %>
+                <% break;
+                case "application": %>
+                    <%- include('partials/download') %>
+                <% break;
+                default: %>
+                    <%- include('partials/embed') %>
+                <% break; } %>
 
             <%- include('partials/info') %>
         <div>
     </div>
 </body>
 </html>
-

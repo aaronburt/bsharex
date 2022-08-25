@@ -1,3 +1,4 @@
+const { config } = require("../config");
 const generate = require("../generator");
 const { getFirestore, FieldValue } = require('firebase-admin/firestore');
 const express = require("express");
@@ -17,7 +18,13 @@ previewRoute.get("/:key", async(req, res) => {
 
         await document.update({ views: FieldValue.increment(1) });
 
-        return res.render('index', { data: snapshot.data(), key: req.params.key, mime: snapshot.data().mimetype.split('/')[0] });
+        return res.render('index', { 
+            data: snapshot.data(), 
+            key: req.params.key, 
+            mime: snapshot.data().mimetype.split('/')[0], 
+            domain: config.domain.cdn.cname, 
+            scheme: config.domain.cdn.scheme 
+        });
     } catch(err){
         console.log(err)
         return res.sendStatus(400);
