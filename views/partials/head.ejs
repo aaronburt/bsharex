@@ -1,19 +1,25 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="https://cdn.bsharex.xyz/bshare-icons-circle/favicon.ico">
 <title>BShare - <%= data.originalname %></title>
 
 <% if(mime === 'image'){ %>
 <!-- <img> -->
-<meta property="og:image" content="https://share.bsharex.xyz/<%= key %>" />
+<meta property="og:image" content="<% presignedUrl %>" />
 <meta property="og:image:type" content="<%= data.mimetype %>" />
 <meta property="og:image:width" content="1280" />
 <meta property="og:image:height" content="720" />
 <!-- </img> -->
 <% } %>
 
-<link rel="icon" type="image/x-icon" href="https://cdn.bsharex.xyz/bshare-icons-circle/favicon.ico">
-<link href="https://cdn.bsharex.xyz/bsharex.xyz/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.bsharex.xyz/bsharex.xyz/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script src="https://kit.fontawesome.com/518f0c9762.js" crossorigin="anonymous"></script>
+<% if (mime === 'video'){ %>
+<!-- <video> -->
+<link href="/public/style/video-js.css" rel="stylesheet" />
+<link href="/public/style/video-js-custom.css" rel="stylesheet"/>
+<!-- </video> -->
+<% } %>
+
+<link rel="stylesheet" href="/public/style/bootstrap.min.css" integrity="sha256-djO3wMl9GeaC/u6K+ic4Uj/LKhRUSlUFcsruzS7v5ms= sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC sha512-usVBAd66/NpVNfBge19gws2j6JZinnca12rAe2l+d+QkLU9fiG02O1X8Q6hepIpr/EYKZvKx/I9WsnujJuOmBA==" crossorigin="anonymous">
+<link href="/public/style/default.css" rel="stylesheet"/>
 

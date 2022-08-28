@@ -1,0 +1,7 @@
+.vjs-share__middle, .vjs-share__title {
+    display: none;
+}
+
+.video-js .vjs-control-bar {
+    background-color: transparent !important;
+}

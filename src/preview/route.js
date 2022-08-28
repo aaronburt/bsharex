@@ -1,3 +1,4 @@
+const Axios = require('axios').default;
 const { config } = require("../config");
 const generate = require("../generator");
 const { getFirestore, FieldValue } = require('firebase-admin/firestore');
@@ -18,12 +19,21 @@ previewRoute.get("/:key", async(req, res) => {
 
         await document.update({ views: FieldValue.increment(1) });
 
+        const payload = await Axios.get(`https://simple-storage-auth.bsharex.xyz/${config.s3.bucket}/${req.params.key}/json`, {
+            "headers": {
+                "token": config.token
+            }
+        })
+
+        if(!(payload.status == 200)) throw new Error('Bucket 404 but database is 200')
+
         return res.render('index', { 
+            presignedUrl: payload.data.url,
             data: snapshot.data(), 
             key: req.params.key, 
             mime: snapshot.data().mimetype.split('/')[0], 
             domain: config.domain.cdn.cname, 
-            scheme: config.domain.cdn.scheme 
+            scheme: config.domain.cdn.scheme,
         });
     } catch(err){
         console.log(err)

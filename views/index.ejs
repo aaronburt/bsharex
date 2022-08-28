@@ -2,11 +2,6 @@
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
     <%- include('partials/head') %>
-    <style>
-        *:focus {
-    outline: none;
-}
-    </style>
 </head>
 <body class="bg-dark">
     <%- include('partials/navbar') %>
@@ -22,7 +17,7 @@
                     <%- include('partials/image') %>
                 <% break;
                 case "application": %>
-                    <%- include('partials/download') %>
+                    <%- include('partials/download-wrapper') %>
                 <% break;
                 default: %>
                     <%- include('partials/embed') %>
@@ -31,5 +26,6 @@
             <%- include('partials/info') %>
         <div>
     </div>
+    <%- include('partials/script') %>
 </body>
 </html>

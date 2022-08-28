@@ -2,8 +2,8 @@
 FROM node:16 as Builder
 WORKDIR /app
 
-COPY ["index.js", "package*.json", "LICENSE.md", "./"]
-COPY 'src/**' 'src/'
+COPY . .
+
 RUN npm install
 
 # Build the deployment apline container

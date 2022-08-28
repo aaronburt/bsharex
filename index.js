@@ -21,7 +21,7 @@ const db = getFirestore();
 
 app.set('view engine', 'ejs');
 app.use('/preview/', previewRoute);
-
+app.use('/public/', express.static(`${__dirname}/public`));
 /* Authentication */ 
 app.use((req, res, next) => {
     if(!authentication.authorization(req.headers.authorization)) return res.status(400).json({ status: 401, err: "authorization invalid" });

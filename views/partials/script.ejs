@@ -1,0 +1,16 @@
+
+<script src="/public/script/video.min.js"></script>
+<script src="/public/script/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/518f0c9762.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/videojs-share@3.2.1/dist/videojs-share.min.js"></script>
+
+<script>
+    const player = videojs('my-video');
+
+    const shareOptions = {
+        socials: ['fb', 'tw', 'reddit', 'messenger', 'telegram', 'whatsapp'],    
+        url: window.location.href,
+    }
+     
+    player.share(shareOptions);
+</script>

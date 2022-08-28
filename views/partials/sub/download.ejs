@@ -1,5 +1,5 @@
 <button type="button" class="btn btn-primary col-12 text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-    Download <%= originalname %>
+    Download <%= data.originalname %> 
 </button>
 
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -14,7 +14,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
-                <a href="<%= scheme %>://<%= domain %>/<%= key %>?download=true" target="_blank"><button type="button" class="btn btn-danger">Download</button></a>
+                <a href="<%= presignedUrl %>" target="_blank"><button type="button" class="btn btn-danger">Download</button></a>
             </div>
         </div>
     </div>
