@@ -9,7 +9,8 @@
     "dockerbuild": "docker build -t mrburtuk/bsharex .",
     "dockertag": "docker tag mrburtuk/bsharex rg.fr-par.scw.cloud/bsharex-xyz/bsharex",
     "dockerpush": "docker push rg.fr-par.scw.cloud/bsharex-xyz/bsharex",
-    "tagnpush": "npm run dockertag && npm run dockerpush"
+    "tagnpush": "npm run dockertag && npm run dockerpush",
+    "buildtagpush": "npm run dockerbuild && npm run tagnpush"
   },
   "keywords": [],
   "author": "mrburtuk",
